@@ -30,6 +30,7 @@ module.exports = {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/index.css',
+    '~assets/css/main.css'
   ],
 
   /*
@@ -46,7 +47,7 @@ module.exports = {
     '@nuxtjs/axios'
   ],
   
-  
+
  axios: {
    // See https://github.com/nuxt-community/axios-module#options
  },
@@ -54,12 +55,22 @@ module.exports = {
   /*
   ** Build configuration
   */
-  build: {
-    /*
+ build: {
+   /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      
-    }
-  }
+   extend(config, ctx) {
+     // Run ESLint on save
+     if (ctx.isDev && ctx.isClient) {
+       config.module.rules.push({
+         enforce: 'pre',
+         test: /\.(js|vue)$/,
+         loader: 'eslint-loader',
+         exclude: /(node_modules)/
+       })
+     }
+   },
+   // https://github.com/nuxt/nuxt.js/issues/3804
+   cache: false
+ }
 }
