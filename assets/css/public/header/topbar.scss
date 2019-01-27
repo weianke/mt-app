@@ -62,13 +62,14 @@
 
           &:hover {
             color: #31BBAC;
+            background: #fff;
           }
         }
 
         &.list:hover {
           border: 1px solid #E5E5E5;
           border-top: none;
-
+          background: #fff;
           >dl {
             display: block;
           }
@@ -88,6 +89,7 @@
 
             &:hover {
               color: #31BBAC;
+              background: #fff;
             }
           }
         }
@@ -135,6 +137,7 @@
           left: -1175px;
           z-index: 999;
           border: 1px solid #e5e5e5;
+          border-right: none;
           display: none;
           text-align: left;
 

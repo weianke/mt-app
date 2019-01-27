@@ -1,30 +1,30 @@
 <template>
-  <el-row 
-        :gutter="0" 
-        class="m-header">
-    <el-col :span="5">
-      <geo />
-    </el-col>
-    <el-col :span="5">
-      <user />
-    </el-col>
-    <el-col :span="14">
-
-    </el-col>
-  </el-row>
+  <div class="m-header">
+    <el-row>
+      <el-col>
+        <topBar />
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col>
+        <searchBar />
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script  type='text/ecmascript-6'>
-import Geo from './geo'
-import User from './user'
+import topBar from './topbar'
+import searchBar from './searchbar'
 export default {
   components: {
-    Geo,
-    User
+    topBar,
+    searchBar
   }
 }
 </script>
 
 <style lang="scss">
-  @import "@/assets/css/public/header/index.scss";
+ @import "@/assets/css/public/layout.scss";
+ @import "@/assets/css/public/header/index.scss";
 </style>
