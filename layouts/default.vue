@@ -1,7 +1,7 @@
 <template>
   <el-container class="layout-default">
     <el-header height="197px">
-      header
+      <my-header />
     </el-header>
     <el-main>
       <nuxt/>
@@ -11,6 +11,15 @@
     </el-footer>
   </el-container>
 </template>
+
+<script  type='text/ecmascript-6'>
+import MyHeader from '@/components/public/header/index.vue'
+export default {
+  components: {
+    MyHeader
+  }
+}
+</script>
 
 <style>
 </style>

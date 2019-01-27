@@ -42,6 +42,10 @@ a, a:hover, a:focus, a:visited{
   color: #41B883;
 }
 
+a{
+  text-decoration: none;
+}
+
 .logo {
   width: 243px;
   height: 218px;
