@@ -1,5 +1,5 @@
 <template>
-  <div>nav</div>
+  <div></div>
 </template>
 
 <script  type='text/ecmascript-6'>
@@ -8,6 +8,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss'>
 
 </style>
