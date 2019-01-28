@@ -15,8 +15,8 @@ export default {
 </script>
 
 <style lang="scss">
+.page-index {
+  width: 100%;
+}
 </style>
-  
 
-
-  
