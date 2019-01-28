@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+.page-index {
+  color: #000000;
+}
 </style>
