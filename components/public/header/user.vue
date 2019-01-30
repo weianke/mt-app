@@ -10,7 +10,7 @@
       <nuxt-link to="/login"
                  class="login">立即登录</nuxt-link>
       <nuxt-link class="register"
-                 to="/reister">注册</nuxt-link>
+                 to="/register">注册</nuxt-link>
     </template>
   </div>
 </template>
