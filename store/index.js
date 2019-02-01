@@ -20,7 +20,6 @@ const store = () => new Vuex.Store({
           ip
         }
       } = await app.$axios.get('/geo/getPosition')
-      console.log(ip)
       commit('geo/setPosition', status === 200 ? {
         city,
         province,
