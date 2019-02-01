@@ -62,6 +62,7 @@
 </template>
 
 <script  type='text/ecmascript-6'>
+import CryptoJS from 'crypto-js'
 export default {
   layout: 'blank',
   data () {
@@ -114,12 +115,34 @@ export default {
   },
   methods: {
     register () {
-
+      this.$refs['ruleForm'].validate((valid) => {
+        if (valid) {
+         const res =  this.$axios.post('/users/signup', {
+            username: window.encodeURIComponent(this.ruleForm.name),
+            password: CryptoJS.MD5(this.ruleForm.pwd).toString(),
+            email: this.ruleForm.email,
+            code: this.ruleForm.code
+          }).then(({status, data}) => {
+            console.log(data)
+            if (status === 200 ) {
+              if (data && data.code === 0) {
+                location.href = '/login'
+              } else {
+                this.error = data.msg
+              }
+            } else {
+              this.error = `服务器出错，错误码：${status}`
+            }
+            setTimeout(() => {
+              this.error = ''
+            }, 1500)
+          })
+        }
+      })
     },
     sendMsg () {
       let namePass
       let emailPass
-      
       if (this.timerid) {
         clearInterval(this.timerid)
       }
