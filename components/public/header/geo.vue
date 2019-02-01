@@ -11,9 +11,9 @@
 export default {
   computed: {
     city () {
-      return this.$store.state.geo.position.city ? this.$store.state.geo.position.city : '开封市'
+      return this.$store.state.geo.position.city.length ? this.$store.state.geo.position.city : '开封市'
     }
-  }``
+  }
 }
 </script>
 

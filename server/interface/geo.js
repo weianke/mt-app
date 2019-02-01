@@ -6,7 +6,7 @@ let router = new Router({
   prefix: '/geo'
 })
 
-const sign = 'a3c9fe0782107295ee9f1709edd15218'
+const sign = Config.sign
 
 router.get('/getPosition', async (ctx) => {
   let {
