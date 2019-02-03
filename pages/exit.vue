@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  layout: 'blank',
   async middleware (ctx) {
     let { status, data } = await ctx.$axios.get('/users/exit')
     if (status === 200 && data && data.code === 0) {
