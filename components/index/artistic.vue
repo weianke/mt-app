@@ -64,18 +64,18 @@ export default {
   },
   async mounted(){
     let self=this;
-    // let {status,data:{count,pois}}=await self.$axios.get('/search/resultsByKeywords',{
-    //   params:{
-    //     keyword:'景点',
-    //     city:self.$store.state.geo.position.city
-    //   }
-    // })
+    let {status,data:{count,pois}}=await self.$axios.get('/search/resultsByKeywords',{
+      params:{
+        keyword:'景点',
+        city:self.$store.state.geo.position.city
+      }
+    })
     if(status===200&&count>0){
       let r= pois.filter(item=>item.photos.length).map(item=>{
         return {
           title:item.name,
           pos:item.type.split(';')[0],
-          price:item.biz_ext.cost||'暂无',
+          price:item.biz_ext.cost.length ? item.biz_ext.cost : '暂无',
           img:item.photos[0].url,
           url:'//abc.com'
         }
@@ -93,18 +93,18 @@ export default {
       if (tag === 'dd') {
         this.kind = dom.getAttribute('kind')
         let keyword = dom.getAttribute('keyword')
-        // let {status,data:{count,pois}}=await self.$axios.get('/search/resultsByKeywords',{
-        //   params:{
-        //     keyword,
-        //     city:self.$store.state.geo.position.city
-        //   }
-        // })
+        let {status,data:{count,pois}}=await self.$axios.get('/search/resultsByKeywords',{
+          params:{
+            keyword,
+            city:self.$store.state.geo.position.city.length ? self.$store.state.geo.position.city : '北京'
+          }
+        })
         if(status===200&&count>0){
           let r= pois.filter(item=>item.photos.length).map(item=>{
             return {
               title:item.name,
               pos:item.type.split(';')[0],
-              price:item.biz_ext.cost||'暂无',
+              price:item.biz_ext.cost.length ? item.biz_ext.cost : '暂无',
               img:item.photos[0].url,
               url:'//abc.com'
             }
