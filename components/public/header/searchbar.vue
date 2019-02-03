@@ -26,7 +26,7 @@
           <dl class="searchList"
               v-if="isSearchList">
             <dd v-for="(item, idx) in searchList"
-                :key="idx">{{item}}</dd>
+                :key="idx">{{item.name}}</dd>
           </dl>
         </div>
         <p class="suggset">
@@ -81,13 +81,14 @@
 </template>
 
 <script  type='text/ecmascript-6'>
+import _ from 'lodash'
 export default {
   data () {
     return {
       search: '',
       isFocus: false,
       hotPlace: ['火锅', '火锅', '火锅', '火锅'],
-      searchList: ['故宫', '故宫' , '故宫']
+      searchList: []
     }
   },
   computed: {
@@ -108,9 +109,18 @@ export default {
         this.isFocus = false
       }, 200)
     },
-    input () {
-      console.log('input')
-    }
+    input:_.debounce(async function() {
+      let self = this
+      let city = self.$store.state.geo.position.city.length ? self.$store.state.geo.position.city.replace('市', '') : '北京'
+      self.searchList = []
+      let {status, data: {top}} = await self.$axios.get('/search/top', {
+        params: {
+          input: self.search,
+          city
+        }
+      })
+      self.searchList = top.slice(0, 10)
+    }, 300)
   }
 }
 </script>
