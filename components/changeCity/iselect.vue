@@ -88,8 +88,7 @@ export default {
       console.log(item.value)
       this.changeCity({
         province: '',
-        city: item.value,
-        ip: ''
+        city: item.value
       })
       window.location = '/'
     },

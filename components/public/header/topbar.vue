@@ -2,10 +2,10 @@
   <el-row 
         :gutter="0" 
         class="m-header">
-    <el-col :span="5">
+    <el-col :span="6">
       <geo />
     </el-col>
-    <el-col :span="5">
+    <el-col :span="4">
       <user />
     </el-col>
     <el-col :span="14">
