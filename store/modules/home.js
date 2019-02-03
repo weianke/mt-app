@@ -21,7 +21,7 @@ const actions = {
   setHotPlace: ({
       commit
   }, hotPlace) => {
-    commit('setMenu', hotPlace)
+    commit('setHotPlace', hotPlace)
   }
 }
 
