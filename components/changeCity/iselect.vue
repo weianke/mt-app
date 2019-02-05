@@ -1,6 +1,6 @@
 <template>
   <div class="m-iselect">
-    <span class="name">按省份选择</span>
+    <span class="name">按省份选择:</span>
     <el-select v-model="pvalue"
                placeholder="省份">
       <el-option v-for="item in province"
@@ -18,6 +18,7 @@
                  :value="item.value">
       </el-option>
     </el-select>
+    <h4 class="name">直接搜索:</h4>
     <el-autocomplete v-model="input"
                      :fetch-suggestions="querySearchAsync"
                      placeholder="请输入城市中文或拼音"
@@ -101,4 +102,18 @@ export default {
 
 <style lang='scss'>
 @import '@/assets/css/changeCity/iselect.scss';
+
+.m-iselect {
+  .name {
+    margin-right: 10px;
+  }
+  h4 {
+    margin-left: 40px;
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+  }
+}
 </style>
