@@ -3,8 +3,8 @@
     <el-row class="m-header-searchbar">
       <el-col :span="3"
               class="left">
-        <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png"
-             alt="美团">
+        <a href="/"><img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png"
+             alt="美团"></a>
       </el-col>
       <el-col :span="15"
               class="center">
