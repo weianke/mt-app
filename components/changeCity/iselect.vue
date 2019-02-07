@@ -86,7 +86,6 @@ export default {
       }
     }, 200),
     handleSelect (item) {
-      console.log(item.value)
       this.changeCity({
         province: '',
         city: item.value

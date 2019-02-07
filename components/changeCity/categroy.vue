@@ -53,7 +53,7 @@ export default {
         })
         
       }
-      console.log(blocks)
+
       blocks.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
       this.block = blocks
     }  
