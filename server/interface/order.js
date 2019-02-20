@@ -12,7 +12,7 @@ router.post('/createOrder', async ctx => {
   let {id, price, count} = ctx.request.body
   let time = Date()
   let orderID = md5(Math.random() * 1000 + time).toString()
-  if (ctx.isAuthenticated()) {
+  if (!ctx.isAuthenticated()) {
     ctx.body = {
       code: -1,
       msg: '请登录'
@@ -55,14 +55,32 @@ router.post('/createOrder', async ctx => {
 })
 
 router.post('/getOrders', async ctx => {
-  if (ctx.isAuthenticated()) {
+  if (!ctx.isAuthenticated()) {
      ctx.body = {
        code: -1,
        msg: '请登录',
        list: []
      }
   } else {
-    let 
+    try {
+      let result = await Order.find()
+      if (result) {
+        ctx.body = {
+          code: 0,
+          list: result
+        }
+      } else {
+        ctx.body = {
+          code: -1,
+          msg: 'fail'
+        }
+      }
+    } catch (e) {
+       ctx.body = {
+         code: -1,
+         msg: 'fail'
+       }
+    }
   }
 })
 
